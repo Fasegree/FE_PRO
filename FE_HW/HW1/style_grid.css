@@ -1,9 +1,9 @@
 .container {
-		font-family: ABeeZee;
-		font-size: 24px;
-		font-weight: 400;
-		max-width: 1437px;
-		margin: 0 auto;
+	font-family: ABeeZee;
+	font-size: 24px;
+	font-weight: 400;
+	max-width: 1437px;
+	margin: 0 auto;
 }
 
 header {
@@ -17,13 +17,14 @@ nav {
 	grid-template-columns: repeat(3, 1fr);
 	gap: 70px;
 }
-nav a{
+
+nav a {
 	font-size: 14px;
 	text-decoration: none;
 	color: #000;
 }
 
-.contact-us{
+.contact-us {
 	display: block;
 	justify-self: end;
 }
@@ -37,6 +38,7 @@ nav a{
 	border-radius: 50px;
 	transition: transform .2s, font-size .3s, background-color .3s, margin-right .3s;
 }
+
 .btn-contact:hover {
 	background-color: #d69c37;
 	transform: scale3d(1.1);
@@ -52,23 +54,23 @@ nav a{
 	grid-template-columns: 1fr 1fr;
 
 }
+
 h1 {
 	font-family: ABeeZee;
 	font-size: 48px;
 	font-style: italic;
-	font-weight: 400;
 	line-height: 54px;
 	letter-spacing: -0.035em;
 	text-align: left;
 }
 
-.about-us__block-text{
+.about-us__block-text {
 	padding-left: 187px;
 }
+
 .about-us__text {
-	
+
 	max-width: 602px;
-	font-weight: 400;
 	font-size: 24px;
 	color: #22356F;
 }
@@ -78,24 +80,25 @@ h1 {
 .offer {
 	display: grid;
 	justify-items: end;
-    align-items: center;
+	align-items: center;
 	grid-template-columns: 1fr 1fr;
 	background-color: #62D0DF;
 	font-style: italic;
 }
-.offer_block-text{
+
+.offer_block-text {
 	padding-left: 170px;
 	margin: 0 auto;
 	width: 100%;
 	max-width: 586px;
 	color: #fff;
 }
-.offer__text {
-	font-weight: 400;
-	font-size: 24px;
-	}
 
-	/* SLOGAN */
+.offer__text {
+	font-size: 24px;
+}
+
+/* SLOGAN */
 .slogan {
 	display: flex;
 	flex-direction: column;
@@ -103,13 +106,12 @@ h1 {
 	justify-content: center;
 	height: 636px;
 }
+
 .blocktext {
 	padding-bottom: 20px;
 	max-width: 740px;
-	font-family: ABeeZee;
 	font-size: 24px;
 	font-style: italic;
-	font-weight: 400;
 	line-height: 34px;
 	letter-spacing: 0.005em;
 	text-align: left;
@@ -124,25 +126,32 @@ h1 {
 	grid-template-columns: repeat(3, 1fr);
 	aspect-ratio: 3/1;
 }
+
 .card {
 	padding: 126px 70px;
-	font-family: ABeeZee;
 	font-size: 32px;
 	font-style: italic;
-	font-weight: 400;
 	line-height: 34px;
 	letter-spacing: -0.006em;
 	text-align: left;
 	color: #fff;
 }
+
 .card1_color {
 	background-color: #22356F;
 }
+
 .card2_color {
 	background: #0052C1;
 }
+
 .card3_color {
 	background-color: #76B58B;
+}
+
+.card_border {
+	border-top: 5px solid #fff;
+	padding-top: 10px;
 }
 
 /* RENT */
@@ -153,17 +162,18 @@ h1 {
 	align-items: center;
 }
 
-.rent__title{
+.rent__title {
 	color: #22356F;
 
 }
+
 .rent__blocktext {
 	max-width: 676px;
-font-size: 36px;
-font-style: italic;
+	font-size: 36px;
+	font-style: italic;
 
-line-height: 53px;
-letter-spacing: -0.01em;
-text-align: left;
-color: #22356F;
+	line-height: 53px;
+	letter-spacing: -0.01em;
+	text-align: left;
+	color: #22356F;
 }
