@@ -1,0 +1,55 @@
+
+#root {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.card {
+border: 1px solid #b4a0a0;
+border-radius: 20px;
+transition: scale .4s;
+padding: 20px;
+background-color: #e1f5df;
+}
+.card:hover {
+    scale: 1.07;
+    background-color: #80cd93;
+}
+.card > img {
+    display: block; 
+    margin: 0 auto;
+    max-width: 300px; 
+}
+.rating {
+   text-align: center;
+}
+.card > button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 15px  30%;
+    border-radius: 7px;
+    background-color: rgba(249, 186, 69, 0.404);
+    cursor: pointer;
+    transition: background-color .3s;
+    font-size: 20px;
+    bottom: 0;
+
+}
+.card > button:hover {
+    background-color: rgba(249, 186, 69, 0.694);
+    font-weight: 700;
+    
+}
+.activ {
+	color: orange
+}
+
+.shortDescr {
+     /* width: 200px; Задайте ширину контейнера */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Установите количество видимых строк */
+    overflow: hidden;
+  }
+  
