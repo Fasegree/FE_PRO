@@ -44,6 +44,7 @@ async function getСomments(title){
 
 	let resComments = await fetch(`${root_url}/comments?postId=${dataTitle[0].id}`);
 	let dataComments = await resComments.json();
+	console.log(dataComments.length);
 	dataComments.length>0 ? console.log(dataComments): "No comments";     //.postId
 }
 
@@ -52,17 +53,31 @@ async function getСomments(title){
 
 
 // Напишите функцию getPhotoByNickName(username), которая в качестве аргумента принимает никнейм пользователя (/users) и выводит все его фотографии (/photos). В качестве ответа выведите в консоль массив со всеми фотографиями указанного пользователя.
+	// id => album.userId=> id=>photos
+
+	// https://jsonplaceholder.typicode.com/
 
 async function getPhotoByNickName(username){
 	let resUser = await fetch(`${root_url}/users?username=${username}`);
 	let dataUser = await resUser.json();
-	// console.log(dataUser[0].id);
+	console.log(dataUser[0].id); // достали ид юзера по имени
 
-	let resPhotos = await fetch(`${root_url}/photos/?albumId=${dataUser[0].id}`); /// по чем фильтровать      /albums
-	let dataPhotos = await resPhotos.json()
-	dataPhotos.forEach(element => {
-		console.log(element.url);
+
+	let resAlbums = await fetch(`${root_url}/albums/?userId=${dataUser[0].id}`); /// достаем объекты 
+	let dataAlbums = await resAlbums.json()
+	let numbersAlbum = [];
+	dataAlbums.forEach(element => {
+		// console.log(element);  // у юзера такие альбомы
+		numbersAlbum.push(element.id)  // берем ид альбома
+		numbersAlbum.forEach(el => {							// перебираем альбомы
+			fetch(`${root_url}/photos/?albumId=${el}`) // запрашиваем только нужные нам альбомы по ид
+				.then(res => res.json())
+				.then(data => console.log(data[0].url))
+
+		})
+		
 	});
+	
 	
 }
 getPhotoByNickName('Bret')
