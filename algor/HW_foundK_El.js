@@ -16,7 +16,7 @@
 // нельзя использовать метод  shift(), slice() и другие.
 // использование push() и length допустимо
 
-//РЕШЕНИЕ 1  Не выводит последний элемент, потому что не с чем сравнивать
+//РЕШЕНИЕ 1  Сложность линейная O(n)
 function findK(arr1, arr2, k) {
 	let i = 0, j = 0
 	let index = 0;
@@ -31,15 +31,37 @@ function findK(arr1, arr2, k) {
 			i++
 		}
 		index++
-		// console.log(i, j, index);
+	
 	} while ((i < arr1.length && j < arr2.length))
+
+		while (i< arr1.length) {
+			if (index === k) return console.log('k- elem =' + arr1[i]);
+			i++
+			index++
+		}
+
+		while (j < arr2.length) {
+			
+			if (index === k) return console.log("k- element = " + arr2[j]);
+			j++
+			index++
+		}
 	if (index !== k) console.log('No index');
 }
 
+// Объявление переменных
 let arr1 = [100, 112, 256, 349, 770]
-let arr2 = [72, 86, 113, 119, 265, 445, 892]
+let arr2 = [72, 86, 113, 119, 265, 445, 892, 899, 900, 905, 908, 912]
 
-//---------------------------------------------------------------- РЕШЕНИЕ 2 Рабочий вариант
+// Вызов функции
+for (let n = 0; n < 19; n++) {
+	console.log(`n = ${n}`);
+	findK(arr1, arr2, n)
+	
+}
+
+
+//---------------------------------------------------------------- РЕШЕНИЕ 2 
 function mergeSortedArrays(arr1, arr2, k) {
 	const mergedArray = [];
 	let i = 0;
@@ -47,7 +69,7 @@ function mergeSortedArrays(arr1, arr2, k) {
 
 	while (i < arr1.length && j < arr2.length) {
 		if (arr1[i] < arr2[j]) {
-			mergedArray.push(arr1[i]);
+			mergedArray.push(arr1[i]); 
 			i++;
 		} else {
 			mergedArray.push(arr2[j]);
@@ -69,17 +91,14 @@ function mergeSortedArrays(arr1, arr2, k) {
 	mergedArray[k] ? console.log(mergedArray[k]) : console.log("index not found");
 }
 
-mergeSortedArrays(arr1, arr2, 0);
-mergeSortedArrays(arr1, arr2, 1);
-mergeSortedArrays(arr1, arr2, 2);
-mergeSortedArrays(arr1, arr2, 3);
-mergeSortedArrays(arr1, arr2, 4);
-mergeSortedArrays(arr1, arr2, 5);
-mergeSortedArrays(arr1, arr2, 6);
-mergeSortedArrays(arr1, arr2, 7);
-mergeSortedArrays(arr1, arr2, 8);
-mergeSortedArrays(arr1, arr2, 9);
-mergeSortedArrays(arr1, arr2, 10);
-mergeSortedArrays(arr1, arr2, 11);
-mergeSortedArrays(arr1, arr2, 12);
+
+
+// Вызов функции
+for (let n = 0; n < 19; n++) {
+	console.log(`n = ${n}`);
+	mergeSortedArrays(arr1, arr2, n);
+	
+}
+
+
 
