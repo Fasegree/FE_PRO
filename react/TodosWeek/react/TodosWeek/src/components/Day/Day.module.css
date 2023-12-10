@@ -1,0 +1,41 @@
+.days{
+	position: relative;
+	display: flex;
+	columns: 3;
+	border: 1px solid #333;
+	border-radius: 15px;
+	gap: 15px;
+	margin-bottom: 15px;
+	
+}
+.day{
+
+	background-color: rgb(4, 51, 96);
+	border-radius: 15px 0px 0 15px ;
+	padding: 15px;
+	min-width: 120px;
+	text-align: center;
+	color: aliceblue;
+	user-select: none;
+}
+/* .day:hover{
+	background-color: rgba(4, 51, 96, 0.725);
+} */
+
+.closeBtn{
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	border-radius: 15px;
+	line-height: .8;
+	padding: 3px;
+	border: 1px solid rgba(153, 0, 0, 0.465);
+	background-color: #fff;
+}
+.closeBtn:hover {
+	
+	
+	background-color: #fbd5d5;
+	cursor: pointer;
+	user-select: none;
+}

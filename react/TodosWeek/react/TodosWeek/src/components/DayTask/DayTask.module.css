@@ -1,0 +1,43 @@
+.task {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background-color: rgb(77, 181, 77);
+	color: wheat;
+	border-radius: 10px;
+	width: 200px;
+	min-height: 30px;
+	padding: 10px;
+	
+
+}
+
+.isImportant{
+background-color: rgb(218, 63, 63);
+}
+.closeBtn{
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	border-radius: 15px;
+	line-height: .8;
+	padding: 3px;
+	border: 1px solid rgba(153, 0, 0, 0.465);
+	background-color: #fff;
+
+	font-size: 10px;
+}
+.closeBtn:hover {
+	
+	color: brown;
+	background-color: #fbd5d5;
+	cursor: pointer;
+	user-select: none;
+}
+.dayArea {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin: 10px;
+}

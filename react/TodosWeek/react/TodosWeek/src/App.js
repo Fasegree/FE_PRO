@@ -4,7 +4,6 @@ import './App.css';
 import AddForm from './components/Addform/AddForm';
 import Field from './components/Field/Field';
 import dataOfWeek from './components/data_src/week_list'
-import Filter from './components/Filter/Filter';
 
 
 
@@ -22,23 +21,10 @@ function App() {
       setDataWeekList(storedData)
    } else{
  
-     localStorage.setItem('weekList', JSON.stringify(weekList))
-     setDataWeekList(weekList)
+     localStorage.setItem('weekList', JSON.stringify(dataOfWeek))
      console.log('else render');
    }
   }, [])
-
-// LS для фильтра
-  const getLSFiltered = () => {
-		return JSON.parse(localStorage.getItem('taskFilter'))
-	}
-	const setLSFiltered = (taskFiltered) => {
-		 localStorage.setItem('taskFilter',JSON.stringify(taskFiltered))
-	}
-	const removeLSFiltered = () => {
-		localStorage.removeItem('taskFilter')
-	}	
-
   
   // console.log(dataOfWeek['Monday']);
   // console.log(Object.keys(dataOfWeek))
@@ -46,16 +32,9 @@ function App() {
     <div >
 
       {/* Передаем либо объект со стандартынми(первоначальными) задачами либо с задачами, сохраненными  в LS */}
-      <AddForm dataWeekList={storedData ?? weekList} setDataWeekList={setDataWeekList}/>
-      <Filter 
-      dataWeekList={storedData ?? weekList} 
-      setDataWeekList={setDataWeekList}
-      getLSFiltered={getLSFiltered}
-      setLSFiltered={setLSFiltered}
-      removeLSFiltered={removeLSFiltered}
-      />
+      <AddForm dataWeekList={storedData ?? dataOfWeek} setDataWeekList={setDataWeekList}/>
       <Field 
-      dataWeekList={getLSFiltered() ?? storedData ?? weekList} 
+      dataWeekList={storedData ?? dataOfWeek} 
       setDataWeekList={setDataWeekList}/>
     </div>
   );
