@@ -17,7 +17,7 @@ export default function Filter({ dataWeekList, setDataWeekList, getLSFiltered, s
 
 	// Фильтрация задач по дню недели
 	function filterByDay(selectedDay, weekTasks) {
-		console.log(selectedDay, weekTasks);
+	
 		if (selectedDay !== undefined) {
 			for (const el in weekTasks) {
 				weekTasks[el] = el === selectedDay ? weekTasks[el] : []
@@ -32,10 +32,12 @@ export default function Filter({ dataWeekList, setDataWeekList, getLSFiltered, s
 	}
 	// Фильтрация задач по важности
 	function filterByImportant(selectedImportant, weekTasks) {
+	
 		if (selectedImportant !== undefined) {
 			Object.keys(dataWeekList).map(day => {
 				return weekTasks[day] = weekTasks[day].filter(el => el.isImportant === selectedImportant);
 			})
+	
 			return weekTasks;
 		} else {
 
@@ -46,19 +48,26 @@ export default function Filter({ dataWeekList, setDataWeekList, getLSFiltered, s
 
 	// Фильтрация "Живой поиск" по строке
 	function filterByTitle(e, filteredTasks) {
+	
 
-		const inputText = e.target.value.toLowerCase();
+		if(e){
 
-		selected.title = inputText;
-
-		const updatedFilteredTasks = {};
-
-		Object.keys(filteredTasks).forEach(day => {
-			updatedFilteredTasks[day] = filteredTasks[day].filter(task =>
-				task.title.toLowerCase().includes(inputText)
-			);
-		});
-		return updatedFilteredTasks
+			const inputText = e.toLowerCase();
+	
+			selected.title = inputText;
+	
+			const updatedFilteredTasks = {};
+	
+			Object.keys(filteredTasks).forEach(day => {
+				updatedFilteredTasks[day] = filteredTasks[day].filter(task =>
+					task.title.toLowerCase().includes(inputText)
+				);
+			});
+			return updatedFilteredTasks
+		} else 
+	
+		
+		return filteredTasks
 
 	}
 	// Фильтрация всего состояние
@@ -68,16 +77,25 @@ export default function Filter({ dataWeekList, setDataWeekList, getLSFiltered, s
 		// сбор данных с формы
 
 		// поиск значения select
+		let filterTitle;
 		let filteredTasks;
 		const selectElement = e.target;
+
 		if (e.target.name === 'title') {
-			console.log('inp');
+			filterTitle = e.target.value
+			
+			selected.title = filterTitle
+			setSelected(selected)
 		} else if (e.target.name === 'day' || e.target.name === 'isImportant') {
 
 			//-----------------
+			// индекс селекта
 			const selectedIndex = selectElement.selectedIndex;
+			// выбранный день
 			const selectedOption = selectElement.options[selectedIndex];
+			// имя селекта
 			const selectName = e.target.name
+	
 			// 
 			// поиск и передача в функцию выбранного дня
 			if (selectName === 'day') {
@@ -91,6 +109,8 @@ export default function Filter({ dataWeekList, setDataWeekList, getLSFiltered, s
 			} else if (selectName === 'isImportant') {
 
 				//   "Выбор важности" присвоение значения undefined, если не выбрана важность, либо [true, false]
+
+				// устанавливаем состояние = если значение имени "нет" ? вернуть undefined : иначе из масива[false, true] .найди( эл, который равен === (если selectedOption.value === 'false' тогда false иначе true ))
 				selected['isImportant'] = selectedOption.value === 'none' ? undefined : [false, true].find(el => el === (selectedOption.value = selectedOption.value === 'false' ? false : true))
 
 				setSelected(selected)
@@ -100,7 +120,7 @@ export default function Filter({ dataWeekList, setDataWeekList, getLSFiltered, s
 		} else {
 		}
 
-		console.log(selected);
+
 
 		//  вызываем функцию фильтрации по дням
 		filteredTasks = filterByDay(selected.day, dataWeekList)
@@ -109,17 +129,17 @@ export default function Filter({ dataWeekList, setDataWeekList, getLSFiltered, s
 		// передача в функцию фильтрации по важности
 		filteredTasks = filterByImportant(selected.isImportant, filteredTasks)
 
+
 		// 
-		filteredTasks = filterByTitle(e, filteredTasks)
-		console.log(e.target.value);
-		console.log(selected);
+		filteredTasks = filterByTitle(filterTitle, filteredTasks)
+
 
 		// рендер списка задач
 		setLSFiltered(filteredTasks)
 		setDataWeekList(filteredTasks)
 
 		// Если нет фильтра, то его удаляем с LS
-		if (!selected.day && !selected.isImportant && selected.title === '') {
+		if (selected.day===undefined && selected.isImportant===undefined && selected.title === '') {
 			console.log('нет фильтра');
 			removeLSFiltered()
 		}
@@ -148,7 +168,7 @@ export default function Filter({ dataWeekList, setDataWeekList, getLSFiltered, s
 				</div>
 
 				<div className={s.btn}>
-					<input name='title' placeholder='Описание задачи' />
+					<input name='title' placeholder='Поиск по описанию задачи' />
 					<button type='submit'>Сброс фильтра</button>
 				</div>
 			</form>

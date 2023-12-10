@@ -29,7 +29,7 @@ export default function AddForm({ dataWeekList, setDataWeekList }) {
 
 	if(newTask.day && newTask.isImportant && newTask.title){
 
-		// добавление id, превращение из строковой в булевую false
+		// добавление id, превращение из строковой в булевую false // переработать id 
 		newTask.id=Date.now()
 		newTask.isImportant = newTask.isImportant==='false' ? false : true
 	
