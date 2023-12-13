@@ -1,0 +1,22 @@
+.serviceList{
+    max-width: 1440;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.serviceList div{
+    width: 100%;
+    aspect-ratio: 1;
+}
+.serviceList p {
+    color: white;
+    font-style: italic;
+    font-size: 32px;
+    line-height: 106.4%;
+    letter-spacing: -1px;
+    margin-left: 70px;
+    margin-top: 96px;
+    border-top: 2px solid #fff;
+    padding-top: 30px;
+    max-width: 340px;
+
+}

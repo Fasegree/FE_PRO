@@ -1,0 +1,31 @@
+.wrapper{
+	margin: 0 auto;
+	max-width: 1439px;
+	display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+	gap: 50px;
+}
+.wrapper img{
+
+}
+.service {
+    background-color: #62D0DF;
+    }
+.text {
+    margin-top: 131px;
+    margin-left: 178px;
+    color: white;
+}
+.text h2 {
+    font-style: italic;
+    font-size: 36px;
+    line-height: 76.8%;
+    letter-spacing: -1px;
+}
+.text p{
+    margin-top: 27px;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 147.8%;
+}

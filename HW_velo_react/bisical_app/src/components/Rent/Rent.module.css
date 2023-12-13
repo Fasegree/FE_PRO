@@ -1,0 +1,19 @@
+.wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 67px;
+}
+
+.text {
+    font-style: italic;
+    font-size: 36px;
+}
+.text h3{
+
+}
+.text p{
+    line-height: 147.8%;
+    letter-spacing: -1px;
+    margin-top: 49px;
+}

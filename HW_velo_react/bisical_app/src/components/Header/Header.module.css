@@ -1,0 +1,89 @@
+.header{
+	max-width: 1140px;
+	margin: 0 auto;
+}
+.logo {
+	max-width: 118px;
+	aspect-ratio: 1;
+}
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1500px;
+	margin: 0 auto;
+	margin-bottom: 85px;
+	
+}
+nav > ul {
+	display: flex;
+	gap: 70px;
+	list-style: none;
+	font-size: 14px;
+	line-height: 112%;
+	
+}
+nav li{
+	padding-bottom: 10px;
+	border-bottom: 2px solid transparent;
+}
+nav li:hover{
+	user-select: none;
+	color: brown;
+	cursor: pointer;
+	border-bottom: 2px solid #22356F;
+}
+.text{
+	line-height: 178%;
+	width: 610px;
+	color: #22356F;
+}
+.title{
+	margin-top: 41px;
+	font-size: 48px;
+	line-height: 112%;
+	font-style: italic;
+	letter-spacing: -2px;
+	
+}
+.text h2{
+	font-size: 48px;
+	line-height: 112%;
+	font-style: italic;
+	letter-spacing: -3px;
+	font-weight: 300;
+}
+
+.text p {
+	margin-top: 82px;
+	font-size: 24px;
+}
+.btnContact {
+	width: 150px;
+	height: 50px;
+	border-radius: 50px;
+	background: #F9B640;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+	color: white;
+
+	transition: all .5s;
+}
+.btnContact:hover{
+	background: #bf8b31;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.wrapper{
+	margin: 0 auto;
+	max-width: 1196px;
+	display: flex;
+	gap: 50px;
+}
+.wrapper img {
+	width: 543px;
+}
